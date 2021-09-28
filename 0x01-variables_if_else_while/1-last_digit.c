@@ -28,5 +28,6 @@ int main(void)
 	{
 	printf("%d and is less than 6 and not 0", lastDigit);
 	}
+	printf("\n");
 	return (0);
 }
