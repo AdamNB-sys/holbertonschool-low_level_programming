@@ -1,7 +1,21 @@
-#include <main.h>
-/**
- * main - Entry point
- *
- * Rreturn: Always 0 (Success)
- */
+#include "main.h"
+#include "_putchar.c"
 
+/**
+ * main - check the code
+ *
+ * Return: Always 0
+ */
+int main(void)
+{
+	_putchar('_');
+	_putchar('p');
+	_putchar('u');
+	_putchar('t');
+	_putchar('c');
+	_putchar('h');
+	_putchar('a');
+	_putchar('r');
+	_putchar('\n');
+	return (0);
+}
