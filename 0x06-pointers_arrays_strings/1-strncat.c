@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include "strlen.c"
 /**
  * *_strncat - concatenates two strings, but uses n bytes from src
  * and src does not need to be null terminated if it contains n or
@@ -10,21 +11,14 @@
  */
 char *_strncat(char *dest, char *src, int n)
 {
-	char *copy = dest;
+	int len = _strlen(dest);
+	int i;
 
-	while (*copy != '\0')
-	{
-		copy++;
-	}
+	for (i = 0 ; i < n && src[i] != '\0' ; i++)
 
-	while (n--)
-	{
-		if (!(*copy++ = *src++))
-		{
-			return (dest);
-		}
-	}
-	*copy = '\0';
+		dest[len + i] = src[i];
+
+	dest[len + i] = '\0';
 
 	return (dest);
 }
