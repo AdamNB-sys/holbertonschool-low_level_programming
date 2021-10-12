@@ -17,9 +17,9 @@ unsigned int _strspn(char *s, char *accept)
 		{
 			if (s[a] == accept[b])
 				c++;
-			if (a > count)
-				return (count);
+			if (a > c)
+				return (c);
 		}
 	}
-	return (count);
+	return (c);
 }
