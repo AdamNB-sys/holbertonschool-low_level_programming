@@ -1,1 +1,1 @@
-This is so I can meet criteria.
+Low level programming and the basics of C.
