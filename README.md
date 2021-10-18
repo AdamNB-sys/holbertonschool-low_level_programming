@@ -1,1 +1,1 @@
-Low level programming and th basics of C.
+Low level programming and the basics of C.
