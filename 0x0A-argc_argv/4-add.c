@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 /**
  * main - entry point
  * @argc: count of args from cmd line
@@ -8,8 +9,8 @@
  */
 int main(int argc, char *argv[])
 {
-	int i, sum;
-	
+	int i, j, sum;
+
 	if (argc < 2)
 	{
 		printf("0\n");
@@ -19,15 +20,15 @@ int main(int argc, char *argv[])
 	sum = 0;
 	for (i = 1; i < argc; i++)
 	{
-		if (((i >= 33) && (i <= 47)) || ((i >= 58) && (i <= 126)))
+		for (j = 0 ; argv[i][j] ; j++)
 		{
-			printf("Error\n");
-			return (1);
+			if (!isdigit(argv[i][j]))
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
-		else
-		{
-			sum = sum + atoi(argv[i]);
-		}
+		sum = sum + atoi(argv[i]);
 	}
 	printf("%d\n", sum);
 	return (0);
