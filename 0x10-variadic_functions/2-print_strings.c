@@ -24,10 +24,11 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		point = va_arg(args, char *);
 		if (point == NULL)
 			printf("(nil)");
-		if (x < (n - 1) && separator != NULL)
-			printf("%s", separator);
 		else
 			printf("%s", point);
+
+		if (x < (n - 1) && separator != NULL)
+			printf("%s", separator);
 	}
 	printf("\n");
 	va_end(args);
