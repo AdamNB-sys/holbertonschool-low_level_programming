@@ -1,5 +1,4 @@
 #include "main.h"
-#include "_putchar.c"
 
 /**
  * binary_to_uint - prints binary
@@ -9,17 +8,23 @@
 unsigned int binary_to_uint(const char *b)
 {
 	int x = 0;
+	unsigned int sum = 0;
+
 
 	if (b == NULL)
 		return (0);
 
 	while (b[x])
 	{
-		if (x == '1' || x == '0')
+		if (b[x] == '1' || b[x] == '0')
 		{
-			_putchar(x);
+			sum = ((sum * 2) + (b[x] - '0'));
+		}
+		else
+		{
+			return (0);
 		}
 		x++;
 	}
-	return (0);
+	return (sum);
 }
