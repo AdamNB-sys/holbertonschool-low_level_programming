@@ -12,7 +12,10 @@ hash_table_t *hash_table_create(unsigned long int size)
 	hashBrown = malloc(sizeof(hash_table_t));
 
 	if (hashBrown == NULL || size == 0)
+	{
+		free(hashBrown);
 		return (NULL);
+	}
 	hashBrown->size = size;
 	hashBrown = malloc(sizeof(hash_node_t *) * size);
 
