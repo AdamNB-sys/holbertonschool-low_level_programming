@@ -10,30 +10,54 @@
  */
 int advanced_binary(int *array, size_t size, int value)
 {
-    int left = 0, mid, i;
-    int right = size - 1;
+    if (!array)
+        return (-1);
+    return (binary_recursion(array, 0, size - 1, value));
+}
 
-    if (array)
+/**
+ * binary_recursion - driver for advanced binary search
+ * @array: array to search
+ * @left: left-most index of array
+ * @right: right-most index of array
+ * @value: the value to locate
+ * Return: the index of found value or -1
+ */
+int binary_recursion(int *array, int left, int right, int value)
+{
+    int mid = left + (right - left) / 2;
+
+    if (left == right && array[left] == value)
+        return (left);
+
+    printf("Searching in array: ");
+    /** print_array(&array[left], (right - left + 1)); */
+    if (left == right)
+        return (-1);
+    else if (array[mid] == value || array[mid] > value)
+        return (binary_recursion(array, left, mid, value));
+
+    return (binary_recursion(array, mid + 1, left, value));
+}
+
+/**
+ * print_array - prints section of array being sorted
+ * @array: array to print
+ * @index: index to print from
+ * @end: final node in array
+ */
+void print_array(int *array, int index, int end)
+{
+    for (; index <= end; ++index)
     {
-        while (left <= right)
+        if (index < end)
         {
-            printf("Searching in array: ");
-            for (i = left; i <= right; i++)
-            {
-                if (i == right)
-                    printf("%d\n", array[i]);
-                else
-                    printf("%d, ", array[i]);
-            }
-
-            mid = (left + right) / 2;
-            if (value == array[mid])
-                return (mid);
-            else if (value < array[mid])
-                right = mid - 1;
-            else
-                left = mid + 1;
+            printf("%d", array[index]);
+            printf(", ");
+        }
+        else
+        {
+            printf("%d\n", array[index]);
         }
     }
-    return (-1);
 }
